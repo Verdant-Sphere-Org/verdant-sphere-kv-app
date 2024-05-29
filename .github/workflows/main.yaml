@@ -1,15 +1,39 @@
-name: "Main Work Flow"
+name: Main Workflow
 
+# trigger
 on:
   pull_request:
     branches:
       - dev
 
+env:
+  PORT: 3000
+
 jobs:
   build:
-    name: "Build Laravel App"
+    name: Build Laravel App
     runs-on: ubuntu-latest
     steps:
-      - name: Hello
-        run:
-          echo "Hello"
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          composer install
+
+      - name: Setup Env
+        run: |
+          cp .env.ci .env
+
+      - name: Build the Application
+        run: |
+          php artisan key:generate
+
+      - name: Run Unit Test
+        run: |
+          php artisan test
