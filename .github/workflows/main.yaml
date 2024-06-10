@@ -15,13 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql
+        image: mysql:latest
         ports:
           - '3306:3306'
         env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
           MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: db
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          MYSQL_USERNAME: root
+          MYSQL_DATABASE: test
 
     steps:
       - name: Setup PHP
@@ -43,6 +44,10 @@ jobs:
       - name: Build the Application
         run: |
           php artisan key:generate
+
+      - name: Migrate the Database
+        run: |
+          php artisan migrate
 
       - name: Run Unit Test
         run: |
