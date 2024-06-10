@@ -6,9 +6,6 @@ on:
     branches:
       - dev
 
-env:
-  PORT: 3000
-
 jobs:
   build:
     name: Build Laravel App
