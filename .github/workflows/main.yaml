@@ -40,7 +40,7 @@ jobs:
       - name: Setup Env
         run: |
           cp .env.ci .env
-          cp .env.co .env.testing
+          cp .env.ci .env.testing
 
       - name: Build the Application
         run: |
