@@ -7,5 +7,5 @@ on:
       - features/qa
 
 jobs:
-    call-workflow:
+  call-workflow:
     uses: ./.github/workflows/main.yaml
