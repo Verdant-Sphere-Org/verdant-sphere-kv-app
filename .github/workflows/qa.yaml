@@ -1,0 +1,11 @@
+name: QA Workflow
+
+# trigger
+on:
+  push:
+    branches:
+      - features/qa
+
+jobs:
+    call-workflow:
+    uses: ./.github/workflows/main.yaml

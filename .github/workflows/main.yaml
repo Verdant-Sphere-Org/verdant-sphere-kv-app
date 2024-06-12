@@ -1,11 +1,8 @@
-name: Main Workflow
+name: Reusable Workflow
 
 # trigger
 on:
-  pull_request:
-    branches:
-      - dev
-      - main
+  workflow_call:
 
 jobs:
   build:
