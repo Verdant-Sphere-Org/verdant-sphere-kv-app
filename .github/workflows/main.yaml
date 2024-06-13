@@ -77,7 +77,7 @@ jobs:
           cp .env.ci .env
           cp .env.ci .env.testing
 
-      - name: Generate the Key
+      - name: Generate the key
         run: |
           php artisan key:generate
 
