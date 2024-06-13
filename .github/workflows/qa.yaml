@@ -7,6 +7,5 @@ on:
       - features/qa
 
 jobs:
-  name: QA
   call-workflow:
     uses: ./.github/workflows/main.yaml
