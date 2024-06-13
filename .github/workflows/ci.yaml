@@ -8,5 +8,6 @@ on:
       - main
 
 jobs:
+  name: CI
   call-workflow:
     uses: ./.github/workflows/main.yaml
