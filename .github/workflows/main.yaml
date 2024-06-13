@@ -32,7 +32,7 @@ jobs:
           cp .env.ci .env
           cp .env.ci .env.testing
 
-      - name: Generate the key
+      - name: Generate the Key
         run: |
           php artisan key:generate
 
