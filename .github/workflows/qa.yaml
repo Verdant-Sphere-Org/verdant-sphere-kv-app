@@ -2,7 +2,9 @@ name: QA Workflow
 
 # trigger
 on:
-  workflow_dispatch:
+  push:
+   branches:
+    - features/qa
 
 jobs:
   build:
