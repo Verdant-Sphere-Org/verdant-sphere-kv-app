@@ -5,40 +5,9 @@ on:
   workflow_call:
 
 jobs:
-  build:
-    name: Build Laravel App
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.2"
-
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: |
-          composer install
-
-      - name: Cache the Vendor
-        uses: actions/cache@v4.0.2
-        with:
-          key: ${{ github.sha }}-php-vendor-cache
-          path: ./vendor
-
-      - name: Setup Env
-        run: |
-          cp .env.ci .env
-
-      - name: Build the Application
-        run: |
-          php artisan key:generate
-
   test:
     name: Test the Application
     runs-on: ubuntu-latest
-    needs: [build]
     services:
       mysql:
         image: mysql:latest

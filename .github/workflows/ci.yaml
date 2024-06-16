@@ -8,5 +8,12 @@ on:
       - main
 
 jobs:
-  call-workflow:
-    uses: ./.github/workflows/main.yaml
+  build:
+    uses: ./.github/workflows/build.yaml
+
+  test:
+    uses: ./.github/workflows/build.yaml
+
+  scan:
+    uses: ./.github/workflows/scan.yaml
+
