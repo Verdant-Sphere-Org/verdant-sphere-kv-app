@@ -14,5 +14,5 @@ jobs:
     needs: [build]
     uses: ./.github/workflows/test.yaml
 
-  scan:
-    uses: ./.github/workflows/scan.yaml
+  dockerbuild:
+    uses: ./.github/workflows/docker.yaml
