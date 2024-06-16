@@ -1,9 +1,11 @@
-name: Scan
+name: Scan Wrokflow
 
+# trigger
 on:
   workflow_call:
 
 jobs:
+  scan:
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@<action version> # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
       env:
@@ -15,7 +17,7 @@ jobs:
         scan-type: 'fs'
         scan-ref: '.'
 
-    jobs:
+jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
@@ -42,7 +44,7 @@ jobs:
           push: true
           tags: user/app:latest
 
-    - name: Build an image from Dockerfile
+      - name: Build an image from Dockerfile
         run: |
           docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
       - name: Run Trivy vulnerability scanner
