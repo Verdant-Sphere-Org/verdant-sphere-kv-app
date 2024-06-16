@@ -5,18 +5,6 @@ on:
   workflow_call:
 
 jobs:
-  scan:
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@<action version> # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-    - name: Trivy Scan in fs mode
-      uses: aquasecurity/trivy-action@0.20.0
-      with:
-        scan-type: 'fs'
-        scan-ref: '.'
-
   docker:
     runs-on: ubuntu-latest
     steps:
