@@ -15,5 +15,4 @@ jobs:
     uses: ./.github/workflows/test.yaml
 
   scan:
-    needs: [test]
     uses: ./.github/workflows/scan.yaml
