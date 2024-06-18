@@ -1,0 +1,15 @@
+name: "Prepare Action"
+description: "Prepare Composite Action"
+inputs:
+  version:
+    description: "PHP Version"
+    required: true
+
+runs:
+  using: composite
+
+steps:
+  - name: Setup PHP
+    uses: shivammathur/setup-php@v2
+    with:
+      php-version: ${{inputs.version}}

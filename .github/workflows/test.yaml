@@ -24,13 +24,13 @@ jobs:
           MYSQL_DATABASE: test
 
     steps:
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{inputs.version}}
-
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Prepare Action
+        uses: ./.github/actions/prepare-action
+        with:
+          version: ${{inputs.version}}
 
       - name: Restore the Cache
         id: cache
