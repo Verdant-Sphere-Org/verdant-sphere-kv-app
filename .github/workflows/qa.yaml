@@ -1,10 +1,7 @@
 name: QA Workflow
 
 # trigger
-on:
-  push:
-   branches:
-    - features/qa
+on: workflow_dispatch
 
 jobs:
   build:
