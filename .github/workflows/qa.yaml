@@ -2,17 +2,21 @@ name: QA Workflow
 
 # trigger
 on:
-  push:
-   branches:
-    - features/qa
+  workflow_dispatch:
 
 jobs:
   build:
+    name: "Build"
     uses: ./.github/workflows/build.yaml
+      with:
+        version: "8.3"
 
   test:
+    name: "Test"
     needs: [build]
     uses: ./.github/workflows/test.yaml
+      with:
+        version: "8.2"
 
   dockerbuild:
     uses: ./.github/workflows/docker.yaml
