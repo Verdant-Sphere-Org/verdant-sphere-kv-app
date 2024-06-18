@@ -21,6 +21,3 @@ jobs:
     with:
       version: "8.2"
 
-  dockerbuild:
-    uses: ./.github/workflows/docker.yaml
-

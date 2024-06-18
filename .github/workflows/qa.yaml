@@ -17,6 +17,3 @@ jobs:
     uses: ./.github/workflows/test.yaml
     with:
       version: "8.2"
-
-  dockerbuild:
-    uses: ./.github/workflows/docker.yaml
