@@ -1,0 +1,22 @@
+name: CI Workflow
+
+# trigger
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
+
+jobs:
+  build:
+    name: "Build"
+    uses: ./.github/workflows/build.yaml
+    with:
+      version: "8.3"
+
+  test:
+    name: "Test"
+    needs: [build]
+    uses: ./.github/workflows/test.yaml
+    with:
+      version: "8.2"
