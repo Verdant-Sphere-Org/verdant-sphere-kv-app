@@ -1,4 +1,4 @@
-name: QA Workflow
+name: QA Workflow 2
 
 # trigger
 on: workflow_dispatch
