@@ -8,8 +8,8 @@ inputs:
 runs:
   using: composite
 
-steps:
-  - name: Setup PHP
-    uses: shivammathur/setup-php@v2
-    with:
-      php-version: ${{inputs.version}}
+  steps:
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{inputs.version}}
