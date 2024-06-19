@@ -15,3 +15,7 @@ jobs:
     uses: ./.github/workflows/build.yaml
     with:
       version: "8.2"
+
+  scan:
+    name: "Scan"
+    uses: ./.github/workflows/scan.yaml
