@@ -9,11 +9,14 @@ on:
         type: string
 
 jobs:
-  scan:
-    name: Scan The Application
+  sonarcloud:
+    name: SonarCloud Scan The Application
     runs-on: ubuntu-latest
     steps:
-      - name: Sonar Cloud
-        uses: sonarsource/sonarqube-scan-action@v2.2
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@v2.3
         env:
           SONAR_TOKEN: ${{ inputs.token }}

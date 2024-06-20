@@ -22,8 +22,8 @@ jobs:
       version: "8.2"
 
   scan:
-    name: "Scan"
+    name: "SonarCloud Scan"
     needs: [test]
     uses: ./.github/workflows/scan.yaml
-    with:
+    env:
       token: ${{ secrets.SONAR_TOKEN }}
