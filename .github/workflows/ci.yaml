@@ -25,5 +25,5 @@ jobs:
     name: "SonarCloud Scan"
     needs: [test]
     uses: ./.github/workflows/scan.yaml
-    with:
-      secret_input: ${{ secrets.SONAR_TOKEN }}
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
