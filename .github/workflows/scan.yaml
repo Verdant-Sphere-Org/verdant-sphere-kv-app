@@ -3,7 +3,6 @@ name: Scan workflow
 #trigger
 on: 
   workflow_call:
-    inputs:
     secrets:
       SONAR_TOKEN:
         required: true
