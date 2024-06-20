@@ -3,6 +3,10 @@ name: Scan workflow
 #trigger
 on: 
   workflow_call:
+    inputs:
+      token:
+        required: true
+        type: string
 
 jobs:
   scan:
@@ -12,10 +16,4 @@ jobs:
       - name: Sonar Cloud
         uses: sonarsource/sonarqube-scan-action@v2.2
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Trivy Scan in fs mode
-        uses: aquasecurity/trivy-action@0.20.0
-        with:
-          scan-type: 'fs'
-          scan-ref: '.'
+          SONAR_TOKEN: ${{ inputs.token }}

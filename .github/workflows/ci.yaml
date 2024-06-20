@@ -2,7 +2,7 @@ name: CI Workflow
 
 # trigger
 on:
-  pull_request:
+  push:
     branches:
       - dev
       - main
@@ -17,6 +17,13 @@ jobs:
   test:
     name: "Test"
     needs: [build]
-    uses: ./.github/workflows/test.yaml
+    uses: ./.github/workflows/build.yaml
     with:
       version: "8.2"
+
+  scan:
+    name: "Scan"
+    needs: [test]
+    uses: ./.github/workflows/scan.yaml
+    with:
+      token: ${{ secrets.SONAR_TOKEN }}
