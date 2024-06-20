@@ -4,9 +4,9 @@ name: Scan workflow
 on: 
   workflow_call:
     inputs:
-      SONAR_TOKEN:
+      secret_input:
+        description: "sonar cloud secret key"
         required: true
-        type: string
 
 jobs:
   sonarcloud:
@@ -19,4 +19,4 @@ jobs:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v2.3
         env:
-          SONAR_TOKEN: ${{ inputs.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ inputs.secret_input }}
