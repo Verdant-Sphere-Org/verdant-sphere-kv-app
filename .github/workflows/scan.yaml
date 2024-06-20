@@ -19,3 +19,9 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@v2.3
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Trivy Scan in fs mode
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
